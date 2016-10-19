@@ -1,0 +1,14 @@
+//
+//  JNRootViewController.h
+//  JNNavigationDemo
+//
+//  Created by NetEase on 16/10/19.
+//  Copyright © 2016年 NetEase. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "JNBaseViewController.h"
+
+@interface JNRootViewController : JNBaseViewController
+
+@end
