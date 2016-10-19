@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+// TODO:you can add more
 typedef NS_ENUM(NSInteger, FNNavationBarType) {
     FNNavationBarType_Normal,          // 默认的，白色毛玻璃透明 (有线)
     FNNavationBarType_Green,           // 主题绿色 (无线)
@@ -29,18 +30,15 @@ typedef NS_ENUM(NSInteger, FNNavationBarType) {
  */
 @property (assign, nonatomic, readonly) FNNavationBarType currentType;
 
-// 重新自定义导航栏字体颜色
+/**
+ *  重新自定义导航栏字体颜色
+ */
 @property (assign, nonatomic) UIColor *customTintColor;
 
 /**
- *  用于增加到透明导航栏拖动的时候显示导航栏的功能，也可以自己加个view，这里默认添加一个毛玻璃导航栏在上面
- *
- *  @param barStyle style
- *
- *  @return toolbar
+ *  所有系统都使用双导航模式，默认NO
  */
-- (UIToolbar *)addTopBarWithBarStyle:(UIBarStyle)barStyle;
-- (UIView *)addTopBarWithColor:(UIColor *)color;
+@property (assign, nonatomic) BOOL towNavBarModel;
 
 
 /**

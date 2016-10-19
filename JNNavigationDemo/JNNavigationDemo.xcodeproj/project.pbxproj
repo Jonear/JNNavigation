@@ -18,6 +18,7 @@
 		E6C41DBF1DB718CE00B580B5 /* UIViewController+NavationBarTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C41DBC1DB718CE00B580B5 /* UIViewController+NavationBarTheme.m */; };
 		E6C41DC21DB7406500B580B5 /* JNRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C41DC11DB7406500B580B5 /* JNRootViewController.m */; };
 		E6C41DC51DB7407400B580B5 /* JNBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C41DC41DB7407400B580B5 /* JNBaseViewController.m */; };
+		E6C41DC71DB749DB00B580B5 /* icon_nav_Bottom_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E6C41DC61DB749DB00B580B5 /* icon_nav_Bottom_line@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		E6C41DC11DB7406500B580B5 /* JNRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNRootViewController.m; sourceTree = "<group>"; };
 		E6C41DC31DB7407400B580B5 /* JNBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JNBaseViewController.h; sourceTree = "<group>"; };
 		E6C41DC41DB7407400B580B5 /* JNBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNBaseViewController.m; sourceTree = "<group>"; };
+		E6C41DC61DB749DB00B580B5 /* icon_nav_Bottom_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_nav_Bottom_line@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 		E6C41DB61DB716A600B580B5 /* JNNavigation */ = {
 			isa = PBXGroup;
 			children = (
+				E6C41DC61DB749DB00B580B5 /* icon_nav_Bottom_line@2x.png */,
 				E6C41DB71DB718CE00B580B5 /* UINavigationBar+Awesome.h */,
 				E6C41DB81DB718CE00B580B5 /* UINavigationBar+Awesome.m */,
 				E6C41DB91DB718CE00B580B5 /* UIViewController+NavgationItem.h */,
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6C41D931DB7165B00B580B5 /* LaunchScreen.storyboard in Resources */,
+				E6C41DC71DB749DB00B580B5 /* icon_nav_Bottom_line@2x.png in Resources */,
 				E6C41D901DB7165B00B580B5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

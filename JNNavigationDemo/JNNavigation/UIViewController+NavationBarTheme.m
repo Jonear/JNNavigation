@@ -23,26 +23,23 @@ alpha:alphaValue]
 static char currentTypeKey;
 static char customNavBarKey;
 static char customTintColorKey;
+static char towNavBarModelKey;
 
-- (FNNavationBarType)currentType
-{
+- (FNNavationBarType)currentType {
     NSNumber *typeNum = objc_getAssociatedObject(self, &currentTypeKey);
     return [typeNum integerValue];
 }
 
-- (void)setCurrentType:(FNNavationBarType)type
-{
+- (void)setCurrentType:(FNNavationBarType)type {
     objc_setAssociatedObject(self, &currentTypeKey, @(type), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (UINavigationBar *)customNavBar
-{
+- (UINavigationBar *)customNavBar {
     UINavigationBar *navBar = objc_getAssociatedObject(self, &customNavBarKey);
     return navBar;
 }
 
-- (void)setCustomNavBar:(UINavigationBar *)navBar
-{
+- (void)setCustomNavBar:(UINavigationBar *)navBar {
     objc_setAssociatedObject(self, &customNavBarKey, navBar, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -53,15 +50,22 @@ static char customTintColorKey;
     }
 }
 
-- (UIColor *)customTintColor
-{
+- (UIColor *)customTintColor {
     UIColor *color = objc_getAssociatedObject(self, &customTintColorKey);
     return color;
 }
 
-- (void)setCustomTintColor:(UIColor *)color
-{
+- (void)setCustomTintColor:(UIColor *)color {
     objc_setAssociatedObject(self, &customTintColorKey, color, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)towNavBarModel {
+    NSNumber *model = objc_getAssociatedObject(self, &towNavBarModelKey);
+    return [model boolValue];
+}
+
+- (void)setTowNavBarModel:(BOOL)towNavBarModel {
+    objc_setAssociatedObject(self, &towNavBarModelKey, @(towNavBarModel), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 #pragma mark - 上面是自定义分类属性
@@ -71,7 +75,7 @@ static char customTintColorKey;
         [self updateNavigationBarType:type];
     } else {
         UIViewController * vc = [[self transitionCoordinator] viewControllerForKey:UITransitionContextFromViewControllerKey];
-        if (IOS10 && vc && vc.currentType!=type && type!=FNNavationBarType_Clear) {
+        if ((IOS10 && vc && vc.currentType!=type && type!=FNNavationBarType_Clear) || self.towNavBarModel) {
             // 单独添加navBar处理
             [self updateNavigationBarType:type];
             [self.navigationController.navigationBar jn_setBackgroundAlpha:0];
@@ -109,9 +113,13 @@ static char customTintColorKey;
 - (void)updateNavigationBar:(UINavigationBar *)navBar withType:(FNNavationBarType)type {
     [navBar setUserInteractionEnabled:YES];
     if (type == FNNavationBarType_Green) {
+        // alpha
         [navBar jn_setBackgroundAlpha:1.];
+        // backgroundColor
         [navBar jn_setBackgroundColor:[self barColorTransitionWithColor:[UIColor greenColor]]];
+        // botoomLine Hide
         [self setBarBottomLine:navBar hidden:YES];
+        // tintColor
         [self setBarTintColor:navBar color:[UIColor whiteColor]];
     } else if (type == FNNavationBarType_Clear) {
         [navBar jn_setBackgroundAlpha:0.];
@@ -158,30 +166,12 @@ static char customTintColorKey;
 
 - (void)setBarTintColor:(UINavigationBar *)navBar color:(UIColor *)color titleColor:(UIColor *)titleColor {
     [navBar setTintColor:color];
-    NSDictionary *attributes=[NSDictionary dictionaryWithObjectsAndKeys:titleColor, NSForegroundColorAttributeName, [UIFont systemFontOfSize:DefaultTitleSize], NSFontAttributeName, nil];
+    NSDictionary *attributes=[NSDictionary dictionaryWithObjectsAndKeys:titleColor, NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:DefaultTitleSize], NSFontAttributeName, nil];
     [navBar setTitleTextAttributes:attributes];
 }
 
 - (void)setBarBottomLine:(UINavigationBar *)navBar hidden:(BOOL)isHidden {
     [navBar jn_setBottomLineHidden:isHidden];
-}
-
-- (UIToolbar *)addTopBarWithBarStyle:(UIBarStyle)barStyle {
-    UIToolbar *bar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, ([UIScreen mainScreen].bounds.size.width), 64)];
-    bar.barStyle = barStyle;
-    bar.alpha = 0;
-    [self.view addSubview:bar];
-    
-    return bar;
-}
-
-- (UIView *)addTopBarWithColor:(UIColor *)color {
-    UIView *bar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ([UIScreen mainScreen].bounds.size.width), 64)];
-    bar.backgroundColor = color;
-    bar.alpha = 0;
-    [self.view addSubview:bar];
-    
-    return bar;
 }
 
 - (UIColor *)barColorTransitionWithColor:(UIColor *)color {

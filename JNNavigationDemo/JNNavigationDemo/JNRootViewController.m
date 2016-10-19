@@ -27,6 +27,7 @@
     [self.view addSubview:button1];
     
     [self addNavRightBtnWithTitle:@"ok" selector:@selector(rightItemClick:)];
+    [self setCustomTintColor:[UIColor blueColor]];
 }
 
 - (void)buttonClick:(id)sender {
