@@ -78,4 +78,11 @@
     return rightBtn;
 }
 
+
+- (void)updateNavBackItemIcon {
+    [self.navigationController.navigationBar setBackIndicatorImage:[UIImage imageNamed:@"icon_navigation_back"]];
+    [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"icon_navigation_back"]];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes: @{NSFontAttributeName:[UIFont systemFontOfSize:15.0]}
+                                                                                            forState:UIControlStateNormal];
+}
 @end

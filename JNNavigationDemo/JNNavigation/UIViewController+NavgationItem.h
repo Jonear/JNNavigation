@@ -42,4 +42,8 @@
 - (UIButton *)getNavButtonWithTitle:(NSString *)title selector:(SEL)selector color:(UIColor *)color;
 - (UIButton *)getNavButtonWithImage:(UIImage *)image selector:(SEL)selector;
 
+
+// 更新导航栏返回按钮的箭头图标
+- (void)updateNavBackItemIcon;
+
 @end
