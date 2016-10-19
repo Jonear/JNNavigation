@@ -1,6 +1,6 @@
 //
 //  UINavigationBar+Awesome.h
-//  LTNavigationBar
+//  JNNavigation
 //
 //  Created by Jonear on 16-2-15.
 //  Copyright (c) 2015 Jonear. All rights reserved.

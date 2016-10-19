@@ -1,6 +1,6 @@
 //
 //  FNViewController.m
-//  FengNiao
+//  JNNavigation
 //
 //  Created by Jonear on 16/4/20.
 //  Copyright © 2016年 Jonear. All rights reserved.

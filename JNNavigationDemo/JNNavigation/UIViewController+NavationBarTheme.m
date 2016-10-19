@@ -1,6 +1,6 @@
 //
 //  UIViewController+NavationBarTheme.m
-//  FengNiao
+//  JNNavigation
 //
 //  Created by Jonear on 16/4/26.
 //  Copyright © 2016年 Jonear. All rights reserved.
