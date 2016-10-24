@@ -71,7 +71,13 @@ static char towNavBarModelKey;
 #pragma mark - 上面是自定义分类属性
 
 - (void)setNavigationBarWithType:(FNNavationBarType)type {
-    if (([[self.navigationController childViewControllers] firstObject] == self && [self isMovingToParentViewController])) {
+    [self setNavigationBarWithType:type animated:YES];
+}
+
+- (void)setNavigationBarWithType:(FNNavationBarType)type animated:(BOOL)animated {
+    if (!animated) {
+        [self updateNavigationBarType:type];
+    } else if (([[self.navigationController childViewControllers] firstObject] == self && [self isMovingToParentViewController])) {
         [self updateNavigationBarType:type];
     } else {
         UIViewController * vc = [[self transitionCoordinator] viewControllerForKey:UITransitionContextFromViewControllerKey];

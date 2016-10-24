@@ -23,7 +23,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self setNavigationBarWithType:[self jn_navationBarType]];
+    [self setNavigationBarWithType:[self jn_navationBarType] animated:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

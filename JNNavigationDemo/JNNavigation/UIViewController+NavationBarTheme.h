@@ -24,6 +24,7 @@ typedef NS_ENUM(NSInteger, FNNavationBarType) {
  *  @param type 样式
  */
 - (void)setNavigationBarWithType:(FNNavationBarType)type;
+- (void)setNavigationBarWithType:(FNNavationBarType)type animated:(BOOL)animated;
 
 /**
  *  当前导航栏的主题
